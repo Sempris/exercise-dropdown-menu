@@ -99,12 +99,8 @@ ul li a {
     color: #91969c;
 }
 
-i {
-    display: block;
-}
-
 .fas, .far {
-    display: block;
+    display: block !important;
     color: #91969c;
     padding: 5px 0;
 }
