@@ -1,0 +1,257 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+:root {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 200px 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr) 100px;
+    grid-template-areas:
+    "nav sec1 sec1"
+    "nav sec2 sec3"
+    "nav sec4 sec5"
+    "nav footer footer";
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #1fa8e0;
+    text-align: center;
+    padding: 20px 0;
+}
+
+section {
+    background-color: #f5f5f5;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+section, footer {
+    text-transform: uppercase;
+}
+
+nav {
+    grid-area: nav;
+    background-color: #30373c;
+}
+
+.one {
+    grid-area: sec1;
+    margin-bottom: 20px;
+}
+
+.two {
+    grid-area: sec2;
+    margin-right: 20px;
+}
+
+.three {
+    grid-area: sec3;
+}
+
+.four {
+    grid-area: sec4;
+    margin-right: 20px;
+}
+
+.five {
+    grid-area: sec5;
+}
+
+footer {
+    grid-area: footer;
+    background-color: #717171;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+ul li {
+    text-align: center;
+    padding: 20px 0;
+    border: 1px solid #121516;
+}
+
+ul li:hover {
+    border-bottom: 1px solid #00A8E0;
+    cursor: pointer;
+}
+
+ul li a {
+    color: #91969c;
+}
+
+.fas, .far {
+    display: block;
+    color: #91969c;
+    padding: 5px 0;
+}
+
+ul li:hover a, ul li:hover i {
+    color: #00A8E0;
+}
+
+ul li:hover i {
+    animation: shake 1s infinite alternate;
+}
+
+@keyframes shake {
+    0% {
+        transform: rotate(5deg);
+    }
+    25% {
+        transform: rotate(-10deg);
+    }
+    50% {
+        transform: rotate(5deg);
+    }
+    75% {
+        transform: rotate(-10deg);
+    }
+    100% {
+        transform: rotate(5deg);
+    }
+}
+
+.wrapped {
+    position: relative;
+}
+
+.wrapped::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-width: 5px 0 5px 5px;
+    border-style: solid;
+    border-color: transparent #91969c;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translate(-100%, -50%);
+    transition: transform .5s;
+}
+
+.wrapped:hover::after {
+    transform: rotate(180deg) translate(50%, 50%);
+    border-color: transparent #00A8E0;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    height: auto;
+    background-color: #30373c;
+    color: #91969c;
+}
+
+.wrapped:hover .dropdown {
+    display: block;
+}
+
+.dropdown li {
+    width: 150px;
+    padding: 10px 0 10px 30px;
+    transition: transform 0.5s;
+    border: none;
+    text-align: left;
+}
+
+.dropdown li:hover {
+    border: none;
+    background-color: #464b50;
+    color: #00A8E0;
+}
+
+@media screen and (max-width: 992px) {
+    .container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 90px repeat(5, 1fr) 100px;
+        grid-template-areas:
+        "nav"
+        "sec1"
+        "sec2"
+        "sec3"
+        "sec4"
+        "sec5"
+        "footer";
+    }
+
+    section {
+        margin: 10px 20px;
+    }
+
+    h1 {
+        padding: 20px;
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    nav ul li {
+        border: none;
+        margin-right: 30px;
+    }
+
+    nav ul li:hover {
+        border: none;
+    }
+
+    .wrapped::after {
+        content: '';
+        width: 0;
+        height: 0;
+        border-width: 5px 5px 0 5px;
+        border-style: solid;
+        border-color: #91969c transparent;
+        position: absolute;
+        right: 50%;
+        top: 100%;
+        transform: translate(100%, -100%);
+        transition: transform .5s;
+    }
+    
+    .wrapped:hover::after {
+        transform: rotate(180deg) translate(-50%, 100%);
+        border-color: #00A8E0 transparent;
+    }
+    
+    .dropdown {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        height: auto;
+        background-color: #30373c;
+        color: #91969c;
+    }
+}
